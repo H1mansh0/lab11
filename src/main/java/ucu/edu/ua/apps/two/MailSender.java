@@ -13,12 +13,14 @@ import lombok.ToString;
 @Builder
 @ToString
 public class MailSender {
-    public static void sendMail(MailInfo mailInfo, String apiKey, String apiSecretKey) throws MailjetException {
+    public static void sendMail(MailInfo mailInfo,
+     String apiKey, String apiSecretKey) throws MailjetException {
         MailjetClient mailjetClient;
         MailjetRequest mailjetRequest;
         MailjetResponse mailjetResponse;
 
-        ClientOptions clientOptions = ClientOptions.builder().apiKey(apiKey).apiSecretKey(apiSecretKey).build();
+        ClientOptions clientOptions = ClientOptions.builder().
+        apiKey(apiKey).apiSecretKey(apiSecretKey).build();
         mailjetClient = new MailjetClient(clientOptions);
 
         mailjetRequest = new MailjetRequest(Emailv31.resource)
